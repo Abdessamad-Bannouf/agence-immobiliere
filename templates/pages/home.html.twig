@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title 'Tous nos biens' %}
+{% block body %}
+<h1>Voir tous nos biens</h1>
+<div class="container">
+    {% for property in properties %}
+        <div class="col-3" style="display:inline-block;">
+            <div class="card">
+                <h5 class="card-title">
+                    <a href="{{ path("property.show", {id:property.id,slug:property.slug}) }}" property.title }}</a>
+                </h5>
+                <p class="text-uppercase font-weight-bold .text-primary">{{ property.title }}</p>
+                <p class="text-middlecase text-dark">{{ property.city }} | {{ property.postalcode }}</p>
+                <div class="text-primary" style="font-weight:bold;font-size:2em;":>{{ property.getFormattedPrice }}</div>
+            </div>
+        </div>
+    {%  endfor %}
+</div>
+{% endblock %}
